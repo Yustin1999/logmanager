@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css'
 import Logs from './Logs.jsx'
 import LogPage from './LogPage.jsx';
+import Tariff from './Tariff.jsx'
 import { Link } from "react-router-dom";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Router>
                 <Routes>
                     <Route path="/" element={<Logs />} />
+                    <Route path="/folder/Tariff" element={<Tariff />} />
                     <Route path="/folder/:folderName" element={<LogPage />} />
                 </Routes>
             </Router>
