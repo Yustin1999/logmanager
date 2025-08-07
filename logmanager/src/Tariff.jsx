@@ -1,18 +1,28 @@
-import { useEffect, useState } from 'react';
-
+import { useEffect, useState, useRef } from 'react';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/atom-one-dark.css';
 export default function Tariff() {
+    const codeRef = useRef();
     const [xmlContent, setXmlContent] = useState('');
     useEffect(() => {
         fetch('/Tariff.xml')
-            .then((res) => res.text())
-            .then((text) => setXmlContent(text))
+            .then(res => res.text())
+            .then(setXmlContent)
             .catch((error) => console.error('Error fetching XML:', error));
     }, []);
-    
+
+    useEffect(() => {
+        if (codeRef.current) {
+            console.log('Highlighting code...')
+            delete codeRef.current.dataset.highlighted;
+            hljs.highlightElement(codeRef.current);
+        }
+    }, [xmlContent]);
+
     return (
         <div className='tariff-container'>
             <pre className="tariff-xml">
-                {xmlContent}
+                <code className="language-xml" ref={codeRef}>{xmlContent}</code>
             </pre>
         </div>
 
