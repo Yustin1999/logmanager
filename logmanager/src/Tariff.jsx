@@ -4,7 +4,7 @@ export default function Tariff() {
     return (
         <div >
             <h1>PANCAKES</h1>
-            
+            <iframe src="C:\Users\JustinSummers\Documents\GitHub\logmanager\logmanager\public\Tariff.xml" width="100%" height="800px" title="Tariff XML"/>
         </div>
 
     )

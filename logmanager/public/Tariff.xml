@@ -1,0 +1,139 @@
+<Tariff>
+<!-- Comments DO NOT USE POUND SIGNS OR HYPHENS
+
+George Eliot Hospital, Nuneaton
+Period               Fee
+Up to 30 minutes     FREE
+Up to 1 hour         £3.00
+Up to 2 hours        £4.00
+Up to 3 hours        £5.00
+Up to 4 hours        £6.00
+Up to 5 hours        £8.00
+Up to 6 hours        £9.00
+Up to 24 hours       £12.50
+Tariff then loops from the 1 hour band
+N.B. Tariff applies on all days of the year including Public Holidays and weekends.
+
+UnitFactor?Value in pence and only applicable if TariffUnit is set to Point
+ValidFrom?dd/MM/yyyy
+ValidTo?dd/MM/yyyy
+LookUp?Filename
+Cyclic?All tariff should cycle after a period. It could be 24Hrs or indefinite period
+-->
+<Section Name="NormalTariff1" ID="1" TariffUnit="Point" BeforeUnitFactor="1" AfterUnitFactor="1" COUnitFactor="01/02/2013 00:00" ValidFrom="01/01/2022 00:00" ValidTo="01/01/2050 23:59">
+	<Key Name="Cyclic" Duration="0:0:0" />
+	<Key Name="MaxFee" Fee="0" />
+	<Key Name="HiddenGrace" Duration="0:0:5" />
+	<Key Name="MinPaymentGrace" Duration="0:0:0" />
+	<Key Name="FreePeriodAtStart" Duration="0:0:30" />
+	<Key Name="Monday" Value="Normal" />
+	<Key Name="Tuesday" Value="Normal" />
+	<Key Name="Wednesday" Value="Normal" />
+	<Key Name="Thursday" Value="Normal" />
+	<Key Name="Friday" Value="Normal" />
+	<Key Name="Saturday" Value="Normal" />
+	<Key Name="Sunday" Value="Normal" />
+	<Key Name="BankHoliday" Value="Normal" LookUp="Bankholiday.ini"/>
+</Section>
+<Section Name="StaffDayTariff2" ID="2" TariffUnit="Point" BeforeUnitFactor="1" AfterUnitFactor="1" COUnitFactor="01/02/2013 00:00" ValidFrom="01/01/2022 00:00" ValidTo="01/01/2050 23:59">
+	<Key Name="Cyclic" Duration="0:0:0" />
+	<Key Name="MaxFee" Fee="0" />
+	<Key Name="HiddenGrace" Duration="0:0:5" />
+	<Key Name="MinPaymentGrace" Duration="0:0:0" />
+	<Key Name="Monday" Value="StaffDay" />
+	<Key Name="Tuesday" Value="StaffDay" />
+	<Key Name="Wednesday" Value="StaffDay" />
+	<Key Name="Thursday" Value="StaffDay" />
+	<Key Name="Friday" Value="StaffDay" />
+	<Key Name="Saturday" Value="StaffDay" />
+	<Key Name="Sunday" Value="StaffDay" />
+	<Key Name="BankHoliday" Value="StaffDay" LookUp="Bankholiday.ini"/>
+</Section>
+<Section Name="StudentDayTariff3" ID="3" TariffUnit="Point" BeforeUnitFactor="1" AfterUnitFactor="1" COUnitFactor="01/02/2013 00:00" ValidFrom="01/01/2022 00:00" ValidTo="01/01/2050 23:59">
+	<Key Name="Cyclic" Duration="0:0:0" />
+	<Key Name="MaxFee" Fee="0" />
+	<Key Name="HiddenGrace" Duration="0:0:5" />
+	<Key Name="MinPaymentGrace" Duration="0:0:0" />
+	<Key Name="Monday" Value="StudentDay" />
+	<Key Name="Tuesday" Value="StudentDay" />
+	<Key Name="Wednesday" Value="StudentDay" />
+	<Key Name="Thursday" Value="StudentDay" />
+	<Key Name="Friday" Value="StudentDay" />
+	<Key Name="Saturday" Value="StudentDay" />
+	<Key Name="Sunday" Value="StudentDay" />
+	<Key Name="BankHoliday" Value="StudentDay" LookUp="Bankholiday.ini"/>
+</Section>
+<Section Name="StaffWeekendDayTariff4" ID="4" TariffUnit="Point" BeforeUnitFactor="1" AfterUnitFactor="1" COUnitFactor="01/02/2013 00:00" ValidFrom="01/01/2022 00:00" ValidTo="01/01/2050 23:59">
+	<Key Name="Cyclic" Duration="0:0:0" />
+	<Key Name="MaxFee" Fee="0" />
+	<Key Name="HiddenGrace" Duration="0:0:5" />
+	<Key Name="MinPaymentGrace" Duration="0:0:0" />
+	<Key Name="Monday" Value="StaffWeekday" />
+	<Key Name="Tuesday" Value="StaffWeekday" />
+	<Key Name="Wednesday" Value="StaffWeekday" />
+	<Key Name="Thursday" Value="StaffWeekday" />
+	<Key Name="Friday" Value="StaffWeekday" />
+	<Key Name="Saturday" Value="StaffWeekend" />
+	<Key Name="Sunday" Value="StaffWeekend" />
+	<Key Name="BankHoliday" Value="StaffWeekday" LookUp="Bankholiday.ini"/>
+</Section>
+<Section Name="VolunteersTariff5" ID="5" TariffUnit="Point" BeforeUnitFactor="1" AfterUnitFactor="1" COUnitFactor="01/02/2013 00:00" ValidFrom="01/01/2022 00:00" ValidTo="01/01/2050 23:59">
+	<Key Name="Cyclic" Duration="0:0:0" />
+	<Key Name="MaxFee" Fee="0" />
+	<Key Name="HiddenGrace" Duration="0:0:5" />
+	<Key Name="MinPaymentGrace" Duration="0:0:0" />
+	<Key Name="Monday" Value="Volunteers" />
+	<Key Name="Tuesday" Value="Volunteers" />
+	<Key Name="Wednesday" Value="Volunteers" />
+	<Key Name="Thursday" Value="Volunteers" />
+	<Key Name="Friday" Value="Volunteers" />
+	<Key Name="Saturday" Value="Volunteers" />
+	<Key Name="Sunday" Value="Volunteers" />
+	<Key Name="BankHoliday" Value="Volunteers" LookUp="Bankholiday.ini"/>
+</Section>
+<Section Name="Normal" ID="">
+	<Key Name="TimeFrame1" StartTime="00:00" EndTime="00:00" EntryCheck="0" ExpiryMinsFromPay="0" />
+	<Key Name="TF1_1" Fee="300" Duration="0:1:0" /> 	  <!-- Up to 1 hour     - £3.00 -->         
+	<Key Name="TF1_2" Fee="100" Duration="0:1:0" />       <!-- Up to 2 hours    - £4.00 --> 
+	<Key Name="TF1_3" Fee="100" Duration="0:1:0" />       <!-- Up to 3 hours    - £5.00 -->
+	<Key Name="TF1_4" Fee="100" Duration="0:1:0" />       <!-- Up to 4 hours    - £6.00 -->
+	<Key Name="TF1_5" Fee="200" Duration="0:1:0" />       <!-- Up to 5 hours    - £8.00 -->
+	<Key Name="TF1_6" Fee="100" Duration="0:1:0" />       <!-- Up to 6 hours    - £9.00 -->
+	<Key Name="TF1_7" Fee="350" Duration="0:18:0" />      <!-- Up to 24 hours   - £12.50 -->
+</Section>
+<Section Name="StaffDay" ID="">
+	<Key Name="TimeFrame1" StartTime="08:30" EndTime="18:29" EntryCheck="0" ExpiryMinsFromPay="0"/>
+	<Key Name="TF1_1" Fee="200" DurationType="FixEndTime" /> 						<!-- £2.00 -->
+	<Key Name="TimeFrame2" StartTime="18:30" EndTime="08:29" ExpiryMinsFromPay="0"/>
+	<Key Name="TF2_1" Fee="000" DurationType="FixEndTime" /> 						<!-- Free -->  
+</Section>
+<Section Name="StudentDay" ID="">
+	<Key Name="TimeFrame1" StartTime="08:30" EndTime="18:29" EntryCheck="0" ExpiryMinsFromPay="0"/>
+	<Key Name="TF1_1" Fee="100" DurationType="FixEndTime" /> 						<!-- £1.00 -->
+	<Key Name="TimeFrame2" StartTime="18:30" EndTime="08:29" ExpiryMinsFromPay="0"/>
+	<Key Name="TF2_1" Fee="000" DurationType="FixEndTime" /> 						<!-- Free -->  
+</Section>
+<Section Name="StaffWeekday" ID="">
+	<Key Name="TimeFrame1" StartTime="08:30" EndTime="18:29" EntryCheck="0" ExpiryMinsFromPay="0"/>
+	<Key Name="TF1_1" Fee="3000" DurationType="FixEndTime" /> 						<!-- £30.00 -->
+	<Key Name="TimeFrame2" StartTime="18:30" EndTime="08:29" ExpiryMinsFromPay="0"/>
+	<Key Name="TF2_1" Fee="000" DurationType="FixEndTime" /> 						<!-- Free -->  
+</Section>
+<Section Name="StaffWeekend" ID="">
+	<Key Name="TimeFrame1" StartTime="08:30" EndTime="18:29" EntryCheck="0" ExpiryMinsFromPay="0"/>
+	<Key Name="TF1_1" Fee="100" DurationType="FixEndTime" /> 						<!-- £1.00 -->
+	<Key Name="TimeFrame2" StartTime="18:30" EndTime="08:29" ExpiryMinsFromPay="0"/>
+	<Key Name="TF2_1" Fee="000" DurationType="FixEndTime" /> 						<!-- Free -->  
+</Section>
+<Section Name="Volunteers" ID="">
+	<Key Name="TimeFrame1" StartTime="08:00" EndTime="19:59" EntryCheck="0" ExpiryMinsFromPay="0"/>
+	<Key Name="TF1_1" Fee="000" DurationType="FixEndTime" /> 						<!-- Free -->
+	<Key Name="TimeFrame2" StartTime="20:00" EndTime="07:59" ExpiryMinsFromPay="0"/>
+	<Key Name="TF2_1" Fee="3000" DurationType="FixEndTime" /> 						<!-- £30.00 -->  
+</Section>
+
+<Section Name="PublicHolidayCheck" ID="">
+	<Key Name="Day1" Date="01-01-2021" />
+</Section>
+
+</Tariff>
