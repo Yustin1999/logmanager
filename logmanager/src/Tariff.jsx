@@ -10,8 +10,8 @@ export default function Tariff() {
     }, []);
     
     return (
-        <div >
-            <pre style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word', background: '#f4f4f4', padding: '1rem', fontSize:'10px', width:'50%'}}>
+        <div className='tariff-container'>
+            <pre className="tariff-xml">
                 {xmlContent}
             </pre>
         </div>
@@ -19,3 +19,4 @@ export default function Tariff() {
     )
 }
 //need to add the tariff data here, would be nice to include a date it was last changed possibly a change log. A tariff tester would be very useful but i dont know how complicated this is.
+// add the style to css to keep it consistent with the rest of the app
