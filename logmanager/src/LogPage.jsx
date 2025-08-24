@@ -18,7 +18,7 @@ export default function FolderPage() {
             .then(setFiles)
             .catch(console.error);
     }, [folderName]);
-
+   
     
 
     return (
@@ -26,12 +26,12 @@ export default function FolderPage() {
             <h1 className="title">Folder: {folderName}</h1>
             <ul className="logs-list">
                 {files.map(file => (
-                    <div className="list-div" onMouseEnter={() => setIsHovered(file)} onMouseLeave={() => setIsHovered(null)}>
+                    <div className="list-div" onMouseEnter={() => setIsHovered(file.name)} onMouseLeave={() => setIsHovered(null)}>
                         
                     
-                    <li key={file} className="Files-List">
-                        {file}{""}
-                            {isHovered === file ? <img className="download-image" src={download} value={file} onClick={(e) => handleClick(e, file)} /> : ""}
+                    <li key={file.name} className="Files-List">
+                        {file.name}{""}
+                            {isHovered === file ? <img className="download-image" src={download} value={file.download_url} onClick={(e) => handleClick(e, file)} /> : ""}
                     </li>
                         
                     </div>
