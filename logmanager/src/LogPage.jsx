@@ -17,7 +17,7 @@ export default function FolderPage() {
             .then(res => res.json())
             .then(setFiles)
             .catch(console.error);
-            console.log("Files", data)
+            console.log("Files", files)
     }, [folderName]);
    
     
