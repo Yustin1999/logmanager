@@ -8,7 +8,7 @@ const app = express();
 const PORT = 4000;
 app.use(cors());
 app.get('/api/folder/:folderName/logs', (req, res) => {
-    const logsFolder = "https://github.com/Yustin1999/LogFiles/tree/main/Logs"
+    const logsFolder = "C:/Users/Justi/Desktop/Logs"
     const folderPath = path.join(logsFolder, req.params.folderName);
     fs.readdir(folderPath, (err, files) => {
         if (err) return res.status(500).json({ error: 'Cannot read folder' });
@@ -23,7 +23,7 @@ app.get('/api/folder/:folderName/logs', (req, res) => {
     });
 });
 app.get('/api/folder/:folderName/:filename', (req, res) => {
-    const logsFolder = "https://github.com/Yustin1999/LogFiles/tree/main/Logs"
+    const logsFolder = "C:/Users/Justi/Desktop/Logs"
     const folderPath = path.join(logsFolder, req.params.folderName, req.params.filename);
     
    

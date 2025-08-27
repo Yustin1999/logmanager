@@ -9,11 +9,11 @@ export default function FolderPage() {
     const handleClick = (e, file) => {
         if (!file) return;
         console.log(file);
-        window.location.href = `http://localhost:4000/api/folder/${folderName}/${encodeURIComponent(file)}`;
+        window.location.href = `https://backendproject-it4q.onrender.com/api/folder/${folderName}/${encodeURIComponent(file)}`;
     }
 
     useEffect(() => {
-        fetch(`http://localhost:4000/api/folder/${folderName}/logs`)
+        fetch(`https://backendproject-it4q.onrender.com/api/folder/${folderName}/logs`)
             .then(res => res.json())
             .then(setFiles)
             .catch(console.error);
@@ -31,7 +31,7 @@ export default function FolderPage() {
                     
                     <li key={file.name} className="Files-List">
                         {file.name}{""}
-                            {isHovered === file ? <img className="download-image" src={download} value={file.download_url} onClick={(e) => handleClick(e, file)} /> : ""}
+                            {isHovered === file.name ? <img className="download-image" src={download} value={file.download_url} onClick={(e) => handleClick(e, file.name)} /> : ""}
                     </li>
                         
                     </div>

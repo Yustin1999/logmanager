@@ -30,6 +30,7 @@ app.get('/api/folder/:folderName/logs', async (req, res) => {
     }
     
 });
+/*
 app.get('/api/folder/:folderName/:filename', (req, res) => {
     const logsFolder = "C:/Users/Justi/Desktop/Logs"
     const folderPath = path.join(logsFolder, req.params.folderName, req.params.filename);
@@ -47,3 +48,4 @@ app.get('/api/folder/:folderName/:filename', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
+*/
