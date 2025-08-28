@@ -3,6 +3,8 @@ import './App.css'
 import Logs from './Logs.jsx'
 import LogPage from './LogPage.jsx';
 import Tariff from './Tariff.jsx'
+import Restore from './Restore.jsx'
+import History from './History.jsx'
 import { Link } from "react-router-dom";
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
             <Router>
                 <Routes>
                     <Route path="/" element={<Logs />} />
+                    <Route path="/folder/History" element={<History />} />
+                    <Route path="/folder/Restore" element={<Restore />} />
                     <Route path="/folder/Tariff" element={<Tariff />} />
                     <Route path="/folder/:folderName" element={<LogPage />} />
                 </Routes>
