@@ -5,7 +5,7 @@ import LogPage from './LogPage.jsx';
 import Tariff from './Tariff.jsx'
 import Restore from './Restore.jsx'
 import History from './History.jsx'
-import { Link } from "react-router-dom";
+
 
 function App() {
   
@@ -13,7 +13,7 @@ function App() {
     return (
         
         <div>
-            <a className="title" href="http://localhost:59405/">
+            <a className="title" href="https://logmanager.vercel.app/">
                 <h1 className="title">Log Manager</h1>
             </a>
 
