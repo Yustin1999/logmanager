@@ -32,7 +32,7 @@ export default function FolderPage() {
                     
                     <li key={file.name} className="Files-List">
                         {file.name}{""}
-                            {isHovered === file.name ? <img className="download-image" src={download} value={file.download_url} onClick={(e) => handleClick(e, file.name)} /> : ""}
+                            {isHovered === file.name ? <img className="download-image" src={download} value={file.name} onClick={(e) => handleClick(e, file.name)} /> : ""}
                     </li>
                         
                     </div>
