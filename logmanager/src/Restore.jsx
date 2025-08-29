@@ -7,7 +7,7 @@ export default function Restore() {
         
         console.log(row);
         try {
-            const res = await fetch("http://localhost:4000/api/updateUser", {
+            const res = await fetch("https://backendproject-it4q.onrender.com/api/updateUser", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -29,8 +29,8 @@ export default function Restore() {
 
     };
     useEffect(() => {
-        //fetch(`https://backendproject-it4q.onrender.com/api/userdata`)
-        fetch(`http://localhost:4000/api/userdata`)
+        fetch(`https://backendproject-it4q.onrender.com/api/userdata`)
+        //fetch(`http://localhost:4000/api/userdata`)
             .then(res => res.json())
             .then(setRows)
             .catch(console.error);
