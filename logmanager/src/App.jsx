@@ -23,9 +23,9 @@ function App() {
             
             <Router>
                 <Routes>
-                    <Route path="/" element={<Logs />} />
                     <Route path="/folder/History" element={<History />} />
                     <Route path="/folder/Restore" element={<Restore />} />
+                    <Route path="/" element={<Logs />} />
                     <Route path="/folder/Tariff" element={<Tariff />} />
                     <Route path="/folder/:folderName" element={<LogPage />} />
                 </Routes>
