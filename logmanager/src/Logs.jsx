@@ -6,7 +6,7 @@ export default function Logs() {
     return (
         <div className="grid-div">
             {folders.map((folder, index) => (
-                <Link className="grid-buttons" key={index} to={`/folder/${folder}`}>
+                <Link className="grid-buttons" key={index} to={`/${folder}`}>
                 
                     <h3>{folder}</h3>
                 
