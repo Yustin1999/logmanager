@@ -10,10 +10,12 @@ export default function FolderPage() {
         if (!file) return;
         console.log(file);
         window.location.href = `https://backendproject-it4q.onrender.com/api/folder/${folderName}/${encodeURIComponent(file)}`;
+        //window.location.href = `http://localhost:4000/api/folder/${folderName}/${encodeURIComponent(file)}`
     }
 
     useEffect(() => {
         fetch(`https://backendproject-it4q.onrender.com/api/folder/${folderName}/logs`)
+        //fetch(`http://localhost:4000/api/folder/${folderName}/logs`)
             .then(res => res.json())
             .then(setFiles)
             .catch(console.error);
