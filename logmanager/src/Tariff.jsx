@@ -13,7 +13,6 @@ export default function Tariff() {
 
     useEffect(() => {
         if (codeRef.current) {
-            console.log('Highlighting code...')
             delete codeRef.current.dataset.highlighted;
             hljs.highlightElement(codeRef.current);
         }
