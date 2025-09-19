@@ -5,6 +5,7 @@ import LogPage from './LogPage.jsx';
 import Tariff from './Tariff.jsx'
 import Restore from './Restore.jsx'
 import History from './History.jsx'
+import Login from "./login";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             
             <Router>
                 <Routes>
+                    <Route path="/login" element={<Login />} />
                     <Route path="/folder/History" element={<History />} />
                     <Route path="/folder/Restore" element={<Restore />} />
                     <Route path="/" element={<Logs />} />
