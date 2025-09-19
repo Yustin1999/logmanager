@@ -30,8 +30,8 @@ export default function History() {
                                 <td>{row.id}</td>
                                 <td>{row.username}</td>
                                 <td>{row.email}</td>
-                                <td>{row.prevAuth}</td>
-                                <td>{row.currentAuth}</td>
+                                <td>{row.prev_auth.toString().toUpperCase()}</td>
+                                <td>{row.current_auth.toString().toUpperCase()}</td>
                                 <td>{row.created_at}</td>
                             </tr>
                         ))
