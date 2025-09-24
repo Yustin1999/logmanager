@@ -6,7 +6,8 @@ import Tariff from './Tariff.jsx'
 import Restore from './Restore.jsx'
 import History from './History.jsx'
 import Login from "./login";
-
+import PrivateRoute from "./TokenCheck";
+import { AuthProvider } from "./AuthContext";
 
 function App() {
   
@@ -21,17 +22,20 @@ function App() {
                 
 
             
-            
-            <Router>
-                <Routes>
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/folder/History" element={<History />} />
-                    <Route path="/folder/Restore" element={<Restore />} />
-                    <Route path="/" element={<Logs />} />
-                    <Route path="/folder/Tariff" element={<Tariff />} />
-                    <Route path="/folder/:folderName" element={<LogPage />} />
-                </Routes>
-            </Router>
+            <AuthProvider>
+                <Router>
+                    <Routes>
+                        <Route path="/login" element={<Login />} />
+                    
+                        <Route path="/folder/History" element={<PrivateRoute> <History /> </PrivateRoute> } />
+                        <Route path="/folder/Restore" element={<PrivateRoute> <Restore /> </PrivateRoute> } />
+                        <Route path="/home" element={<PrivateRoute> <Logs /> </PrivateRoute> } />
+                        <Route path="/folder/Tariff" element={<PrivateRoute> <Tariff /> </PrivateRoute>} />
+                        <Route path="/folder/:folderName" element={<PrivateRoute> <LogPage /> </PrivateRoute>} />
+                    
+                    </Routes>
+                </Router>
+        </AuthProvider>
       </div>
   )
 }

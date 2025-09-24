@@ -29,12 +29,12 @@ export default function FolderPage() {
             <h1 className="title">Folder: {folderName}</h1>
             <ul className="logs-list">
                 {files.map(file => (
-                    <div className="list-div" onMouseEnter={() => setIsHovered(file.name)} onMouseLeave={() => setIsHovered(null)}>
+                    <div className="list-div" onMouseEnter={() => setIsHovered(file)} onMouseLeave={() => setIsHovered(null)}>
                         
                     
-                    <li key={file.name} className="Files-List">
-                        {file.name}{""}
-                            {isHovered === file.name ? <img className="download-image" src={download} value={file.contents} onClick={(e) => handleClick(e, file.name)} /> : ""}
+                    <li key={file} className="Files-List">
+                        {file}{""}
+                            {isHovered === file ? <img className="download-image" src={download} value={file} onClick={(e) => handleClick(e, file)} /> : ""}
                     </li>
                         
                     </div>
