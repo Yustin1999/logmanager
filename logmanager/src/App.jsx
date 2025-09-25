@@ -28,7 +28,7 @@ function App() {
                         <Route path="/login" element={<Login />} />
                         <Route path="/folder/History" element={<PrivateRoute> <History /> </PrivateRoute> } />
                         <Route path="/folder/Restore" element={<PrivateRoute> <Restore /> </PrivateRoute> } />
-                        <Route path="/" element={<PrivateRoute> <Logs /> </PrivateRoute> } />
+                        <Route path="/home" element={<PrivateRoute> <Logs /> </PrivateRoute> } />
                         <Route path="/folder/Tariff" element={<PrivateRoute> <Tariff /> </PrivateRoute>} />
                         <Route path="/folder/:folderName" element={<PrivateRoute> <LogPage /> </PrivateRoute>} />
                     </Routes>
