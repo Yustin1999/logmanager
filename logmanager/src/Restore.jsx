@@ -1,4 +1,4 @@
-
+import { API_URL } from "./config";
 import { useEffect, useState } from "react";
 export default function Restore() {
     const [rows, setRows] = useState([])
@@ -11,7 +11,7 @@ export default function Restore() {
         
         
         try {
-            const res = await fetch("https://backendproject-it4q.onrender.com/api/updateUser", {
+            const res = await fetch(API_URL + "updateUser", {
             //const res = await fetch("http://localhost:4000/api/updateUser", { 
                 method: "POST",
                 headers: {
@@ -19,7 +19,7 @@ export default function Restore() {
                 },
                 body: JSON.stringify(updatedRow) // send JSON to backend
             });
-            const res2 = await fetch("https://backendproject-it4q.onrender.com/api/userLog", {
+            const res2 = await fetch(API_URL + "userLog", {
             //const res2 = await fetch("http://localhost:4000/api/userLog", {  
                 method: "POST",
                 headers: {
@@ -50,7 +50,7 @@ export default function Restore() {
 
     };
     useEffect(() => {
-        fetch(`https://backendproject-it4q.onrender.com/api/userdata`)
+        fetch(API_URL + "userdata")
         //fetch(`http://localhost:4000/api/userdata`)
             .then(res => res.json())
             .then(setRows)

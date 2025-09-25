@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { API_URL } from "./config";
 export default function History() {
     const [rows, setRows] = useState([])
     useEffect(() => {
-        fetch(`https://backendproject-it4q.onrender.com/api/userLogData`)
+        fetch(API_URL + "userLogData")
+        //fetch(`https://backendproject-it4q.onrender.com/api/userLogData`)
             //fetch(`http://localhost:4000/api/userLogData`)
             .then(res => res.json())
             .then(setRows)

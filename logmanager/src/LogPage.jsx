@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+import { API_URL } from "./config";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import download from "./assets/Download.png"
@@ -9,12 +9,12 @@ export default function FolderPage() {
     const handleClick = (e, file) => {
         if (!file) return;
         console.log(file);
-        window.location.href = `https://backendproject-it4q.onrender.com/api/folder/${folderName}/${encodeURIComponent(file)}`;
+        window.location.href = API_URL + `folder/${folderName}/${encodeURIComponent(file)}`;
         //window.location.href = `http://localhost:4000/api/folder/${folderName}/${encodeURIComponent(file)}`
     }
 
     useEffect(() => {
-        fetch(`https://backendproject-it4q.onrender.com/api/folder/${folderName}/logs`)
+        fetch(API_URL + `folder/${folderName}/logs`)
         //fetch(`http://localhost:4000/api/folder/${folderName}/logs`)
             .then(res => res.json())
             .then(setFiles)
