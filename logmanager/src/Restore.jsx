@@ -1,5 +1,13 @@
 import { API_URL } from "./config";
 import { useEffect, useState } from "react";
+
+/* 
+     - Firstly calls the userdata from the DB which is presented on the page in a table
+     - Depending on the authorisation state in the DB a button will appear in the table which will auth/de-auth depending on the state
+     - The button will then change the authorisation state to the oposite value TRUE -> FALSE, FALSE -> TRUE.
+     - On click this information is sent to the DB and the state updates, resulting in the new value be shown on the page shortly after it is clicked.
+     - The click also generate a log of the changes made which is then sent to a seperate table to be displayed on the log page
+*/
 export default function Restore() {
     const [rows, setRows] = useState([])
     const [log, setLog] = useState([])
@@ -11,16 +19,14 @@ export default function Restore() {
         
         
         try {
-            const res = await fetch(API_URL + "updateUser", {
-            //const res = await fetch("http://localhost:4000/api/updateUser", { 
+            const res = await fetch(API_URL + "updateUser", { 
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(updatedRow) // send JSON to backend
             });
-            const res2 = await fetch(API_URL + "userLog", {
-            //const res2 = await fetch("http://localhost:4000/api/userLog", {  
+            const res2 = await fetch(API_URL + "userLog", { 
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -51,7 +57,6 @@ export default function Restore() {
     };
     useEffect(() => {
         fetch(API_URL + "userdata")
-        //fetch(`http://localhost:4000/api/userdata`)
             .then(res => res.json())
             .then(setRows)
             .catch(console.error);

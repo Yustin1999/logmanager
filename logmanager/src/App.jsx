@@ -8,7 +8,7 @@ import History from './History.jsx'
 import Login from "./login";
 import PrivateRoute from "./TokenCheck";
 import { AuthProvider } from "./AuthContext";
-
+//Contains all the routing for the site, PrivateRoute prevents connections to those pages if you do not have a web token
 function App() {
   
 

@@ -10,12 +10,10 @@ export default function FolderPage() {
         if (!file) return;
         console.log(file);
         window.location.href = API_URL + `folder/${folderName}/${encodeURIComponent(file)}`;
-        //window.location.href = `http://localhost:4000/api/folder/${folderName}/${encodeURIComponent(file)}`
     }
 
     useEffect(() => {
         fetch(API_URL + `folder/${folderName}/logs`)
-        //fetch(`http://localhost:4000/api/folder/${folderName}/logs`)
             .then(res => res.json())
             .then(setFiles)
             .catch(console.error);

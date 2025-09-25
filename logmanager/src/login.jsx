@@ -3,7 +3,11 @@ import { login } from "../AuthService"
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import { jwtDecode } from 'jwt-decode'
-
+/* 
+    - Displays a form allowing the user to enter their email and password
+    - On submit this information is set to the DB to check the password and email match one in the DB
+    - Once this is confirmed a JWT is generated and sent back from the backend which is then stored in localstorage so the user can access all pages.
+*/
 
 export default function Login()  {
   const [email, setEmail] = useState('');
@@ -14,7 +18,7 @@ export default function Login()  {
     
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Implement authentication logic here
+    
     if (!email || !password) {
       setError('Please enter both username and password.');
       return;
@@ -24,12 +28,8 @@ export default function Login()  {
           
           
           const data = await login(email, password);
-          console.log(data)
-          
-          // Store user info + token in context
           const user = jwtDecode(data.token);
           setAuth(user, data.token);
-          console.log(user)
           navigate("/")
       } catch (err) {
           setError(err.message);

@@ -1,20 +1,22 @@
 import { createContext, useContext, useState } from "react";
 
-// Create the context
+
 const AuthContext = createContext();
 
-// Hook to access context easily
-export const useAuth = () => useContext(AuthContext);
 
-// Context Provider
-export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null); // {id, email} or null
+export function useAuth() {
+    return useContext(AuthContext);
+} 
+
+
+export function AuthProvider({ children }) {
+    const [user, setUser] = useState(null);
     const [token, setToken] = useState(null);
 
     const login = (userData, jwtToken) => {
-        setUser(userData);       // {id, email} from login
-        setToken(jwtToken);      // JWT string
-        localStorage.setItem("token", jwtToken); // persist across refresh
+        setUser(userData);
+        setToken(jwtToken);
+        // localStorage.setItem("token", jwtToken);
     };
 
     const logout = () => {
@@ -28,4 +30,4 @@ export const AuthProvider = ({ children }) => {
             {children}
         </AuthContext.Provider>
     );
-};
+}

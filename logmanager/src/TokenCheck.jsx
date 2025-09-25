@@ -1,6 +1,11 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 
+
+/* 
+    - Checks a webtoken exists and allows page navigation if so
+    - If one does not exist it will redirect to the login page
+*/
 export default function PrivateRoute({ children }) {
     
     
