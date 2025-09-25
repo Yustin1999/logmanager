@@ -30,7 +30,7 @@ export default function Login()  {
           const user = jwtDecode(data.token);
           setAuth(user, data.token);
           console.log(user)
-          navigate("/home")
+          navigate("/")
       } catch (err) {
           setError(err.message);
       }
