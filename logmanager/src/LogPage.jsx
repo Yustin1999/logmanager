@@ -11,8 +11,6 @@ import download from "./assets/Download.png"
     - Also has a ternary operator to display the download symbol on hover.
 */
 
-
-
 export default function FolderPage() {
     const { folderName } = useParams();
     const [files, setFiles] = useState([]);
@@ -31,8 +29,6 @@ export default function FolderPage() {
             console.log("Files", files)
     }, [folderName]);
    
-    
-
     return (
         <div>
             <h1 className="title">Folder: {folderName}</h1>

@@ -3,6 +3,7 @@ import { login } from "../AuthService"
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import { jwtDecode } from 'jwt-decode'
+
 /* 
     - Displays a form allowing the user to enter their email and password
     - On submit this information is set to the DB to check the password and email match one in the DB
@@ -18,15 +19,12 @@ export default function Login()  {
     
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     if (!email || !password) {
       setError('Please enter both username and password.');
       return;
     }
     setError('');
       try {
-          
-          
           const data = await login(email, password);
           const user = jwtDecode(data.token);
           setAuth(user, data.token);
@@ -34,7 +32,6 @@ export default function Login()  {
       } catch (err) {
           setError(err.message);
       }
-      
   };
 
   return (

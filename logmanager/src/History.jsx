@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { API_URL } from "./config";
 
-
 /* 
     - This page shows information related to the restore page
     - It calls the DB for the user log information which is generated on the restore page
     - This information is then displayed in a table
     - See the Restore page to see how the logs are generated and sent
 */
+
 export default function History() {
     const [rows, setRows] = useState([])
     useEffect(() => {
