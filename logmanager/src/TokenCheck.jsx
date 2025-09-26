@@ -11,8 +11,6 @@ export default function PrivateRoute({ children }) {
     const now = Math.floor(Date.now() / 1000);
     const { user } = useAuth();
     console.log("PrivateRoute user:", user);
-    console.log(user.exp)
-    console.log(now)
     // If user exists in context, render children
     if (user && user.exp > now) return children;
 
