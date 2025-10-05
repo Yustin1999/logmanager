@@ -1,0 +1,140 @@
+body {
+    font-family: "DM Serif Text", serif;
+}
+
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+.grid-div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-rows: repeat(2, auto); /* 2 rows */
+    gap: 10px; /* space between buttons */
+    max-width: 800px;
+    margin: auto;
+}
+
+.grid-buttons {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    height: 100px;
+}
+
+.grid-name {
+    text-align: center;
+    margin:auto;
+    
+}
+
+.grid-buttons:hover {
+    background-color: #0056b3;
+}
+.Files-List {
+    width: 60%;
+    display: flex;
+    padding: 5px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+    list-style: none;
+    font-size: 25px;
+    border-style: solid;
+    justify-content: space-between;
+}
+
+.download-image {
+    height: 30px;
+    width: 30px;
+    justify-content: flex-end;
+}
+
+.tariff-container {
+    margin-right:25%;
+    margin-left: 25%;
+    display: flex;
+}
+
+.tariff-xml {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background: #f4f4f4;
+    padding: 1rem;
+    font-size: 10px;
+}
+
+.login-container {
+    width: 30%;
+    padding: 20px;
+    margin: 20vh auto 0 auto; /* center horizontally, push down vertically */
+    font-size: 16px; /* inputs look better with smaller base font */
+    display: flex;
+    flex-direction: column; /* stack children vertically */
+    align-items: center; /* center form horizontally */
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column; /* stack label above input */
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+label {
+    margin-bottom: 4px; /* small gap between label and input */
+    font-weight: bold; /* optional for readability */
+}
+
+input {
+    padding: 8px;
+    font-size: 14px;
+}
+
+.login-title {
+    text-align:center;
+}
+
+.login-submit {
+    display: block; /* ensure it's treated as a block */
+    margin: 12px auto; /* auto left/right centers it */
+    padding: 10px 20px;
+    font-family: "DM Serif Text", serif;
+}
+
+.login-error {
+    text-align: center;
+    color: red;
+    font-family: "DM Serif Text", serif;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* stretch across the page */
+    height: 100px; /* fixed height */
+    color: Black;
+    display: flex; /* for easy centering */
+    align-items: center;
+    justify-content: center;
+}
+
+.login-submit {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}

@@ -1,4 +1,4 @@
-import { API_URL } from "./src/config";
+import { API_URL } from "../config";
 
 /* 
     - Login function, sends the information inputted into the form to the backend to validate the username and password

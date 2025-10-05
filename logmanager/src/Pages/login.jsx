@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { login } from "../AuthService"
+import { login } from "../Functions/AuthService"
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "./AuthContext";
+import { useAuth } from "../Functions/AuthContext";
 import { jwtDecode } from 'jwt-decode'
 
 /* 
@@ -37,9 +37,9 @@ export default function Login()  {
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit}>
-        <h2>Login</h2>
-        {error && <div className="error">{error}</div>}
-        <div>
+              <h2 className="login-title">Login</h2>
+        
+        <div className="form-row">
           <label htmlFor="email">Email:</label>
           <input
             id="email"
@@ -49,7 +49,7 @@ export default function Login()  {
             autoComplete="email"
           />
         </div>
-        <div>
+              <div className="form-row">
           <label htmlFor="password">Password:</label>
           <input
             id="password"
@@ -59,7 +59,8 @@ export default function Login()  {
             autoComplete="current-password"
           />
         </div>
-        <button type="submit">Log In</button>
+              <button type="submit" className="login-submit">Log In</button>
+              {error && <div className="login-error">Error: {error}</div>}
       </form>
     </div>
   );

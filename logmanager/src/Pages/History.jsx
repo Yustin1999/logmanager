@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { API_URL } from "./config";
+import { API_URL } from "../config";
 
 /* 
     - This page shows information related to the restore page
@@ -19,6 +19,9 @@ export default function History() {
     }, []);
     return (
         <div>
+            <a className="title" href="https://logmanager.vercel.app/">
+                <h1 className="title">Log Manager</h1>
+            </a>
             <h2>User Data</h2>
             <table border="1" cellPadding="8" style={{ borderCollapse: "collapse" }}>
                 <thead>

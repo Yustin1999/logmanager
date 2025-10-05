@@ -1,7 +1,7 @@
-import { API_URL } from "./config";
+import { API_URL } from "../config";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import download from "./assets/Download.png"
+import download from "../assets/Download.png"
 
 /* 
     - Calls the backend for all of the names of the log files
@@ -31,6 +31,10 @@ export default function FolderPage() {
    
     return (
         <div>
+
+            <a className="title" href="https://logmanager.vercel.app/">
+                <h1 className="title">Log Manager</h1>
+            </a>
             <h1 className="title">Folder: {folderName}</h1>
             <ul className="logs-list">
                 {files.map(file => (
