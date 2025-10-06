@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { API_URL } from "../config";
-import Footer from "../Functions/footer";
 /* 
     - This page shows information related to the restore page
     - It calls the DB for the user log information which is generated on the restore page
@@ -9,8 +8,10 @@ import Footer from "../Functions/footer";
 */
 
 export default function History() {
+    console.log(" History component mounted");
     const [rows, setRows] = useState([])
     useEffect(() => {
+        console.log("Fetching from:", API_URL + "userLogData");
         fetch(API_URL + "userLogData")
             .then(res => res.json())
             .then(setRows)

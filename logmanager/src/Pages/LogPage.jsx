@@ -17,7 +17,7 @@ export default function FolderPage() {
     const [isHovered, setIsHovered] = useState(null)
     const handleClick = (e, file) => {
         if (!file) return;
-        console.log(file);
+        //console.log(file);
         window.location.href = API_URL + `folder/${folderName}/${encodeURIComponent(file)}`;
     }
 
@@ -26,7 +26,6 @@ export default function FolderPage() {
             .then(res => res.json())
             .then(setFiles)
             .catch(console.error);
-            console.log("Files", files)
     }, [folderName]);
    
     return (
