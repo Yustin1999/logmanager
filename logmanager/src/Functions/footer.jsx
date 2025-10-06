@@ -31,7 +31,7 @@ export default function Footer() {
         <div >
             {showFooter && ( 
                 <div className="footer">
-                    <h3>© 2025 - Newpark Security Ltd</h3>
+                    <h3>{'\u00A9'} 2025 - Newpark Security Ltd</h3>
                 </div >
            )}
         </div >

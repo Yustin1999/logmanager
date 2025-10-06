@@ -8,10 +8,9 @@ import { API_URL } from "../config";
 */
 
 export default function History() {
-    console.log(" History component mounted");
+   
     const [rows, setRows] = useState([])
     useEffect(() => {
-        console.log("Fetching from:", API_URL + "userLogData");
         fetch(API_URL + "userLogData")
             .then(res => res.json())
             .then(setRows)
