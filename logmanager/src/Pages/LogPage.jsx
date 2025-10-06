@@ -30,18 +30,17 @@ export default function FolderPage() {
     }, [folderName]);
    
     return (
-        <div>
+        <div className="files-page">
 
             <a className="title" href="https://logmanager.vercel.app/">
                 <h1 className="title">Log Manager</h1>
             </a>
-            <h1 className="title">Folder: {folderName}</h1>
             <ul className="logs-list">
                 {files.map(file => (
                     <div className="list-div" onMouseEnter={() => setIsHovered(file)} onMouseLeave={() => setIsHovered(null)}>
                         
                     
-                    <li key={file} className="Files-List">
+                    <li key={file} className="files-List">
                         {file}{""}
                             {isHovered === file ? <img className="download-image" src={download} value={file} onClick={(e) => handleClick(e, file)} /> : ""}
                     </li>

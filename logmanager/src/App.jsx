@@ -35,9 +35,10 @@ function App() {
                         <Route path="/" element={<PrivateRoute> <Logs /> </PrivateRoute> } />
                         <Route path="/:folderName" element={<PrivateRoute> <LogPage /> </PrivateRoute>} />
                     </Routes>
+                    <Footer />
                 </Router>
             </AuthProvider>
-        <Footer/>
+        
       </div>
   )
 }

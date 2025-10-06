@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { API_URL } from "../config";
-
+import Footer from "../Functions/footer";
 /* 
     - This page shows information related to the restore page
     - It calls the DB for the user log information which is generated on the restore page
