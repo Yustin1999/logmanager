@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+
+
+/* 
+       - Footer to go on each page
+       - Its supposed to only display when fully scrolled down or when the page does not need to scroll
+       - It is currently a big buggy when going across pages, it sticks until you scroll again.
+*/
 export default function Footer() {
     const [showFooter, setShowFooter] = useState(false);
     const location = useLocation();
