@@ -19,9 +19,6 @@ export default function History() {
     }, []);
     return (
         <div>
-            <a className="title" href="https://logmanager.vercel.app/">
-                <h1 className="title">Log Manager</h1>
-            </a>
             <table className="history-table" border="1" cellPadding="8" style={{ borderCollapse: "collapse" }}>
                 <thead>
                     <tr>

@@ -10,9 +10,6 @@ export default function Logs() {
     const folders = ["Scoreboard","WSExit","WSEntry","WSEntryExit","WSMachineData","Misc","Archive","Restore","History"]
     return (
         <div>
-            <a className="title" href="https://logmanager.vercel.app/">
-                <h1 className="title">Log Manager</h1>
-            </a>
         <div className="grid-div">
             
             {folders.map((folder, index) => (

@@ -1,48 +1,51 @@
 body {
     font-family: "DM Serif Text", serif;
+    background-color: #c4ced4;
 }
 
 
 .title {
-    font-size: 24px;
+    font-size: 35px;
     font-weight: bold;
     margin-bottom: 20px;
     text-align: center;
     text-decoration: none;
-    color: black;
-    width: 50%;
+    color: #27251f;
+    width: 100%;
     margin: auto;
-    margin-bottom: 20px;    
+    height: 70px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #27251f;
 }
 .grid-div {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    grid-template-rows: repeat(2, auto); /* 2 rows */
-    gap: 10px; /* space between buttons */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 10px;
     max-width: 800px;
     margin: auto;
-    margin-bottom:120px;
+    margin-top: 50px;
 }
 
 .grid-buttons {
     padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
+    background-color: #27251f;
+    color: #ffffff;
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-    height: 100px;
+    height: 150px;
+    opacity: 0.6;
 }
 
 .grid-name {
     text-align: center;
     margin:auto;
-    
+    text-decoration: none;
 }
 
 .grid-buttons:hover {
-    background-color: #0056b3;
+    opacity: 0.5;
 }
 
 .files-page {
@@ -59,13 +62,14 @@ body {
 
 .files-List {
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #27251f;
     border-radius: 8px;
     position: relative;
     cursor: pointer;
     display: flex;
     align-items: center; /* vertically center content */
     justify-content: space-between; /* file name left, icon right */
+    color: #27251f;
 }
 
 .download-image {
@@ -138,11 +142,11 @@ input {
     left: 0;
     width: 100%; /* stretch across the page */
     height: 100px; /* fixed height */
-    color: Black;
+    color: #27251f;
     display: flex; /* for easy centering */
     align-items: center;
     justify-content: center;
-    border-top: 1px solid #ccc; /* subtle top border */
+    border-top: 1px solid #27251f; /* subtle top border */
 }
 
 .login-submit {

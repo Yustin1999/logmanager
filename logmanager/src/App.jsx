@@ -9,6 +9,7 @@ import PrivateRoute from "./Functions/TokenCheck";
 import { AuthProvider } from "./Functions/AuthContext";
 import Footer from "./Functions/footer";
 import "@fontsource/dm-serif-text"; 
+import Title from "./Functions/Title";
 
 /* 
     - Contains all the routes for the project and the path to get to them
@@ -28,6 +29,7 @@ function App() {
             
             <AuthProvider>
                 <Router>
+                    <Title />
                     <Routes>
                         <Route path="/login" element={<Login />} />
                         <Route path="/History" element={<PrivateRoute> <History /> </PrivateRoute> } />
