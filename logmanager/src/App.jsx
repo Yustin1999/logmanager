@@ -10,6 +10,7 @@ import { AuthProvider } from "./Functions/AuthContext";
 import Footer from "./Functions/footer";
 import "@fontsource/dm-serif-text"; 
 import Title from "./Functions/Title";
+import Archive from "./Pages/Archive";
 
 /* 
     - Contains all the routes for the project and the path to get to them
@@ -36,6 +37,7 @@ function App() {
                         <Route path="/Restore" element={<PrivateRoute> <Restore /> </PrivateRoute> } />
                         <Route path="/" element={<PrivateRoute> <Logs /> </PrivateRoute> } />
                         <Route path="/:folderName" element={<PrivateRoute> <LogPage /> </PrivateRoute>} />
+                        <Route path="/Archive" element={<PrivateRoute> <Archive /> </PrivateRoute>} />
                     </Routes>
                     <Footer />
                 </Router>

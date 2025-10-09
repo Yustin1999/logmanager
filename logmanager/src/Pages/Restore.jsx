@@ -87,7 +87,7 @@ export default function Restore() {
                                 <td>{row.username}</td>
                                 <td>{row.email}</td> 
                                 <td>{row.is_authorised == 0 ? "Yes" : "No"}</td>
-                                <td>{row.is_authorised == 0 ? <button onClick={() => handleClick(row)}>Deauthorise</button> : <button  onClick={() => handleClick(row)}>Authorise</button>}</td>
+                                <td>{row.is_authorised == 0 ? <button onClick={() => handleClick(row)}>Deauthorise</button> : <h1>Authorise</h1>}</td>
                             </tr>
                         ))
                     ) : (
