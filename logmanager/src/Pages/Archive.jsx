@@ -10,6 +10,8 @@ export default function Archive() {
             .then(res => res.json())
             .then(setFiles)
             .catch(console.error);
+
+        console.log(files)
     }, []);
 
     for (let i = 0; i < files[0].length; i++) {
@@ -19,7 +21,7 @@ export default function Archive() {
         }
         setResult(group)
     }
-
+    
 
 
 
