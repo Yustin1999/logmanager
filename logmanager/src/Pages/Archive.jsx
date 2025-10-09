@@ -35,7 +35,7 @@ export default function Archive() {
     return (
         <div className="archive-page">
             <ul className="archive-ullist">
-                {result.length > 0 ? <h1>{result[0][0]}</h1> : <h3>Loading...</h3> }
+                {result.length > 0 ? <h1>{result[0][0]}</h1> : <h1>{result[0][0]}</h1>}
             </ul>
             
         </div>
