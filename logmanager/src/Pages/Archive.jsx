@@ -11,16 +11,17 @@ export default function Archive() {
             .then(setFiles)
             .catch(console.error);
 
+        for (let i = 0; i < files[0].length; i++) {
+            const group = [];
+            for (let j = 0; j < files.length; j++) {
+                group.push(files[j][i]);
+            }
+            setResult(group)
+        }
         console.log(files)
     }, []);
 
-    for (let i = 0; i < files[0].length; i++) {
-        const group = [];
-        for (let j = 0; j < files.length; j++) {
-            group.push(files[j][i]);
-        }
-        setResult(group)
-    }
+    
     
 
 
