@@ -6,11 +6,11 @@ export default function Archive() {
     const [files, setFiles] = useState([]);
     const [result, setResult] = useState([]);
     useEffect(() => {
-        fetch(API_URL + `archive`)
+        fetch(API_URL + "archive")
             .then(res => res.json())
             .then(setFiles)
+            .then(res => console.log(res))
             .catch(console.error);
-        console.log(files.length());
     }, []);
 
     useEffect(() => {
