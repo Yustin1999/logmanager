@@ -10,7 +10,7 @@ export default function Archive() {
             .then(res => res.json())
             .then(setFiles)
             .catch(console.error);
-        console.log(files[0]);
+        console.log(files.length());
     }, []);
 
     useEffect(() => {
