@@ -10,7 +10,7 @@ export default function Archive() {
             .then(res => res.json())
             .then(setFiles)
             .catch(console.error);
-        console.log(files[0][0]);
+        console.log(files[0]);
     }, []);
 
     useEffect(() => {
@@ -25,7 +25,7 @@ export default function Archive() {
                 grouped.push(group);
             }
 
-            setResult(grouped);
+            setResult(grouped[0]);
         }
         //console.log(result[0][0]);
     }, [files]);
