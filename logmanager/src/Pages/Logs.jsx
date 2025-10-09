@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export default function Logs() {
     //Can adjust this to pull the logs from a backend or a file
-    const folders = ["Scoreboard","WSExit","WSEntry","WSEntryExit","WSMachineData","Misc","Archive","Restore","History"]
+    const folders = ["Scoreboard","WSExit","WSEntry","WSEntryExit","WSMachineData","Misc","Alternate logs","Restore","History"]
     return (
         <div>
         <div className="grid-div">
