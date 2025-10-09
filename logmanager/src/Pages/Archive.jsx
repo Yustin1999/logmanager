@@ -27,7 +27,7 @@ export default function Archive() {
 
             setResult(grouped);
         }
-        console.log(result[0][0]);
+        //console.log(result[0][0]);
     }, [files]);
     
     
