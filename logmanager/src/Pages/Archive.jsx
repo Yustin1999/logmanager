@@ -10,17 +10,23 @@ export default function Archive() {
             .then(res => res.json())
             .then(setFiles)
             .catch(console.error);
-
-        for (let i = 0; i < files[0].length; i++) {
-            const group = [];
-            for (let j = 0; j < files.length; j++) {
-                group.push(files[j][i]);
-            }
-            setResult(group)
-        }
-        console.log(files)
     }, []);
 
+    useEffect(() => {
+        if (Array.isArray(files) && files.length > 0 && Array.isArray(files[0])) {
+            const grouped = [];
+
+            for (let i = 0; i < files[0].length; i++) {
+                const group = [];
+                for (let j = 0; j < files.length; j++) {
+                    group.push(files[j][i]);
+                }
+                grouped.push(group);
+            }
+
+            setResult(grouped);
+        }
+    }, [files]);
     
     
 
@@ -29,8 +35,7 @@ export default function Archive() {
     return (
         <div className="archive-page">
             <ul className="archive-ullist">
-                <h1>{result[0][1]}</h1>
-
+                {result.length > 0 ? <h1>{result[0][0]}</h1> : <h3>Loading...</h3> }
             </ul>
             
         </div>
