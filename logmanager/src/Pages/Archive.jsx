@@ -8,8 +8,10 @@ export default function Archive() {
     useEffect(() => {
         fetch(API_URL + "archive")
             .then(res => res.json())
-            .then(setFiles)
-            .then(res => console.log(res))
+            .then(data => {
+                console.log("Fetched data:", data);
+                setFiles(data);
+            })
             .catch(console.error);
     }, []);
 
