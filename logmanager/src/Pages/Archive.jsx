@@ -10,6 +10,7 @@ export default function Archive() {
             .then(res => res.json())
             .then(setFiles)
             .catch(console.error);
+        console.log(files);
     }, []);
 
     useEffect(() => {
@@ -26,6 +27,7 @@ export default function Archive() {
 
             setResult(grouped);
         }
+        console.log(result);
     }, [files]);
     
     
@@ -35,7 +37,7 @@ export default function Archive() {
     return (
         <div className="archive-page">
             <ul className="archive-ullist">
-                {result.length > 0 ? <h1>{result[0][0]}</h1> : <h1>{result[0][0]}</h1>}
+                {result.length > 0 ? <h1>{result[0][0]}</h1> : <h3>Loading...</h3> }
             </ul>
             
         </div>
