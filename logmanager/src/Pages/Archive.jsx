@@ -14,32 +14,25 @@ export default function Archive() {
             })
             .catch(console.error);
     }, []);
-
-    useEffect(() => {
-        if (Array.isArray(files) && files.length > 0 && Array.isArray(files[0])) {
-            const grouped = [];
-
-            for (let i = 0; i < files[0].length; i++) {
-                const group = [];
-                for (let j = 0; j < files.length; j++) {
-                    group.push(files[j][i]);
-                }
-                grouped.push(group);
-            }
-
-            setResult(grouped[0]);
-        }
-        console.log(result);
-    }, [files]);
     
-    
-
-
-
     return (
         <div className="archive-page">
-            <ul className="archive-ullist">
-                {result.length > 0 ? <h1>{result[0][0]}</h1> : <h3>Loading...</h3> }
+            <ul className="logs-list">
+                {files.map(file => (
+                    <div>
+                        <h1>date</h1>
+                        {file.map(f => ( 
+                            <ul>
+                                <li key={f} className="files-List">
+                                    {f}{""}
+                                </li>
+                            </ul>
+                        
+                        ))}
+                        
+                    </div>
+                ))}
+
             </ul>
             
         </div>
