@@ -4,6 +4,7 @@ import download from "../assets/Download.png"
 export default function Archive() {
     const [files, setFiles] = useState([]);
     const [isHovered, setIsHovered] = useState(null);
+    const array = [];
     const handleClick = (e, file) => {
         if (!file) return;
         //console.log(file);
@@ -34,7 +35,7 @@ export default function Archive() {
                     <div>
                         
                         <h1>{file[file.length - 1].formattedDate}</h1>
-                        {array = file.filter(item => typeof item === "string")};
+                        { array = file.filter(item => typeof item === "string")};
                         {array.map(f => ( 
                             
                             <ul className="list-div" onMouseEnter={() => setIsHovered(f)} onMouseLeave={() => setIsHovered(null)}>
