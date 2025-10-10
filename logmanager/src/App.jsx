@@ -35,7 +35,8 @@ function App() {
                         <Route path="/login" element={<Login />} />
                         <Route path="/History" element={<PrivateRoute> <History /> </PrivateRoute> } />
                         <Route path="/Restore" element={<PrivateRoute> <Restore /> </PrivateRoute> } />
-                        <Route path="/" element={<PrivateRoute> <Archive /> </PrivateRoute> } />
+                        <Route path="/" element={<PrivateRoute> <Archive /> </PrivateRoute>} />
+                        <Route path="/Tech" element={<PrivateRoute> <LogPage /> </PrivateRoute>} />
                     </Routes>
                     <Footer />
                 </Router>
