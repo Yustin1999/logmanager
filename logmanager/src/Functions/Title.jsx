@@ -6,7 +6,7 @@ export default function Title() {
         <div className = "title-div" href = "https://logmanager.vercel.app/" >
             <h1 className="title">Log Manager</h1>
             <Link className="title-button"  to={"/Tech"}>
-                <button>Tech Area</button>
+                <button className="tech-button">Tech Area</button>
             </Link>
         </div >
     );
