@@ -4,19 +4,25 @@ body {
 }
 
 
-.title {
-    font-size: 35px;
-    font-weight: bold;
+.title-div {
     margin-bottom: 20px;
-    text-align: center;
-    text-decoration: none;
-    color: #27251f;
     width: 100%;
     margin: auto;
     height: 70px;
     margin-bottom: 5px;
     border-bottom: 1px solid #27251f;
     display: inline-block;
+}
+
+.title {
+    text-align: center;
+    text-decoration: none;
+    color: #27251f;
+    width: 100%;
+    margin: auto;
+   
+    font-size: 35px;
+    font-weight: bold;
 }
 .grid-div {
     display: grid;
