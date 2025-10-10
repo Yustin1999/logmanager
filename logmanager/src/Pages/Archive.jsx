@@ -35,16 +35,16 @@ export default function Archive() {
                         
                         <h1>date</h1>
                         
-                        {file.map(f => ( 
+                        {file.map(f => typeof f !== "object" && (
                             
                             <ul className="list-div" onMouseEnter={() => setIsHovered(f)} onMouseLeave={() => setIsHovered(null)}>
                                 <li key={f} className="files-List">
-                                    { if(typeof f === "object"){f}}{""}
+                                    {f}{""}
                                     {isHovered === f ? <img className="download-image" src={download} value={f} onClick={(e) => handleClick(e, f)} /> : ""}
                                 </li>
                                 
                             </ul>
-                        
+                            
                         ))}
                         
                     </div>
