@@ -34,15 +34,16 @@ export default function Archive() {
                     <div>
                         
                         <h1>{file[file.length - 1].formattedDate}</h1>
-                        {file.map(f => ( 
+                        {array = file.filter(item => typeof item === "string")};
+                        {array.map(f => ( 
                             
-                            <ul>
-                                <div className="list-div" onMouseEnter={() => setIsHovered(f)} onMouseLeave={() => setIsHovered(null)}>
+                            <ul className="list-div" onMouseEnter={() => setIsHovered(f)} onMouseLeave={() => setIsHovered(null)}>
+                                
                                 <li key={f} className="files-List">
                                     {Array.isArray(f) ? "" : f}{""}
                                     {isHovered === f ? <img className="download-image" src={download} value={f} onClick={(e) => handleClick(e, f)} /> : ""}
                                 </li>
-                                </div>
+                                
                             </ul>
                         
                         ))}
