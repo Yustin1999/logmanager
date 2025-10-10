@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './Styles/App.css'
 import Logs from './Pages/Logs.jsx'
-import LogPage from './Pages/LogPage.jsx';
 import Restore from './Pages/Restore.jsx'
 import History from './Pages/History.jsx'
 import Login from "./Pages/login";
