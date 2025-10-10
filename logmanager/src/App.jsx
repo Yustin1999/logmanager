@@ -36,7 +36,7 @@ function App() {
                         <Route path="/History" element={<PrivateRoute> <History /> </PrivateRoute> } />
                         <Route path="/Restore" element={<PrivateRoute> <Restore /> </PrivateRoute> } />
                         <Route path="/" element={<PrivateRoute> <Archive /> </PrivateRoute>} />
-                        <Route path="/Tech" element={<PrivateRoute> <LogPage /> </PrivateRoute>} />
+                        <Route path="/Tech" element={<PrivateRoute> <Logs /> </PrivateRoute>} />
                     </Routes>
                     <Footer />
                 </Router>
