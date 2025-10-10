@@ -34,9 +34,9 @@ export default function Archive() {
                     
                     <div>
                         
-                        <h1>{file[file.length - 1].formattedDate}</h1>
-                        { setNewArray( file.filter(item => typeof item === "string"))};
-                        {newArray.map(f => ( 
+                        <h1>date</h1>
+                        
+                        {file.map(f => ( 
                             
                             <ul className="list-div" onMouseEnter={() => setIsHovered(f)} onMouseLeave={() => setIsHovered(null)}>
                                 
