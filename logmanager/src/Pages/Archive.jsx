@@ -33,7 +33,7 @@ export default function Archive() {
                     
                     <div>
                         
-                        <h1>date</h1>
+                        <h1>{file[file.length - 1].formattedDate}</h1>
                         
                         {file.map(f => typeof f !== "object" && (
                             
