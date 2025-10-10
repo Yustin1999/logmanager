@@ -4,7 +4,6 @@ import download from "../assets/Download.png"
 export default function Archive() {
     const [files, setFiles] = useState([]);
     const [isHovered, setIsHovered] = useState(null);
-    const [newArray, setNewArray] = useState([]);
     const handleClick = (e, file) => {
         if (!file) return;
         //console.log(file);
@@ -39,9 +38,8 @@ export default function Archive() {
                         {file.map(f => ( 
                             
                             <ul className="list-div" onMouseEnter={() => setIsHovered(f)} onMouseLeave={() => setIsHovered(null)}>
-                                
                                 <li key={f} className="files-List">
-                                    {Array.isArray(f) ? "" : f}{""}
+                                    {typeof f === "object" ? "" : f}{""}
                                     {isHovered === f ? <img className="download-image" src={download} value={f} onClick={(e) => handleClick(e, f)} /> : ""}
                                 </li>
                                 
