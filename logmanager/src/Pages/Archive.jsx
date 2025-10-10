@@ -39,7 +39,7 @@ export default function Archive() {
                             
                             <ul className="list-div" onMouseEnter={() => setIsHovered(f)} onMouseLeave={() => setIsHovered(null)}>
                                 <li key={f} className="files-List">
-                                    {typeof f === "object" ? "" : f}{""}
+                                    { if(typeof f === "object"){f}}{""}
                                     {isHovered === f ? <img className="download-image" src={download} value={f} onClick={(e) => handleClick(e, f)} /> : ""}
                                 </li>
                                 
