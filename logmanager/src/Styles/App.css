@@ -16,6 +16,7 @@ body {
     height: 70px;
     margin-bottom: 5px;
     border-bottom: 1px solid #27251f;
+    display: inline-block;
 }
 .grid-div {
     display: grid;
