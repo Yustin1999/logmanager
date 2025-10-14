@@ -6,15 +6,13 @@ export default function Archive() {
     const [files, setFiles] = useState([]);
     const [isHovered, setIsHovered] = useState(null);
     const [dropDownHovered, setDropDownHovered] = useState(null)
-    const [dropDownClicked, setDropDownClicked] = useState(false)
+    const [dropDownClicked, setDropDownClicked] = useState(null)
     const handleClick = (e, file) => {
         if (!file) return;
         //console.log(file);
         window.location.href = API_URL + `folder/${encodeURIComponent(file)}`;
     }
-    const dropdownClick = (e) => {
-        setDropDownClicked(!dropDownClicked)
-    }
+   
     
 
     useEffect(() => {
@@ -36,14 +34,14 @@ export default function Archive() {
 
     return (
         <div className="archive-page">
-            <ul className="logs-list">
-                {files.map(file => (
+           
+            {files.map(file => (
+                <ul key={file[0]} onMouseLeave={() => { setDropDownHovered(null); setDropDownClicked(null) }}  className="logs-list">
                     
-                    <div>
-                        
-                        <h1 onMouseEnter={() => setDropDownHovered(file[file.length - 1].formattedDate)} onMouseLeave={() => setDropDownHovered(null)}>{file[file.length - 1].formattedDate}{dropDownHovered === file[file.length - 1].formattedDate ? <img className="dropdown" src={Downarrow} onClick={(e) => dropdownClick(e)} /> :""}</h1>
-                        {console.log(dropDownHovered)}
-                        {dropDownClicked && dropDownHovered === file[file.length - 1].formattedDate && (
+                   
+                        <h1 onMouseEnter={() => setDropDownHovered(file[file.length - 1].formattedDate)}>{file[file.length - 1].formattedDate}{dropDownHovered === file[file.length - 1].formattedDate ? <img className="dropdown" onClick={() => setDropDownClicked(!dropDownClicked) } src={Downarrow} /> :""}</h1>
+                        {dropDownHovered === file[file.length - 1].formattedDate && dropDownClicked && (
+
                             file.map(f => typeof f !== "object" && (
                                 <ul className="list-div" onMouseEnter={() => setIsHovered(f)} onMouseLeave={() => setIsHovered(null)}>
 
@@ -54,12 +52,13 @@ export default function Archive() {
 
                                 </ul>
 
-                            )))}
+                            )))} 
                         
-                    </div>
+                        
+                    </ul>
                 ))}
 
-            </ul>
+            
             
         </div>
     );

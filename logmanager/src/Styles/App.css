@@ -64,26 +64,32 @@ body {
 }
 
 
-.logs-list {
+.archive-page {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
+    gap: 2rem; 
+}
+.logs-list {
+    margin-bottom: 100px;
+    
+}
+.list-div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     list-style: none;
     padding: 0;
+    margin-bottom: 20px;
 }
-.logs-list  {
-    margin-bottom: 100px;
-}
+
 .files-List {
     padding: 12px;
     border: 1px solid #27251f;
     border-radius: 8px;
-    position: relative;
     cursor: pointer;
     display: flex;
-    align-items: center; /* vertically center content */
-    justify-content: space-between; /* file name left, icon right */
+    align-items: center;
+    justify-content: space-between;
     color: #27251f;
-    width: 80%;
 }
 
 .download-image {
