@@ -46,8 +46,8 @@ export default function Archive() {
 
     return (
         <div className="archive-page">
-           
-            {files.map(file => (
+            
+            {files.map(file =>  (
                 <ul onMouseLeave={() => { setDropDownHovered(null); setDropDownClicked(null); }}  className="logs-list">
                     
                    
