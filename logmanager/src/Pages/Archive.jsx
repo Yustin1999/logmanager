@@ -7,7 +7,7 @@ export default function Archive() {
     const [isHovered, setIsHovered] = useState(null);
     const [dropDownHovered, setDropDownHovered] = useState(null);
     const [dropDownClicked, setDropDownClicked] = useState(null);
-    const [dropdownBool, setDropdownBool] = useState([]);
+    const [dropDownBool, setDropDownBool] = useState([]);
     const handleClick = (e, file) => {
         if (!file) return;
         //console.log(file);
@@ -23,7 +23,7 @@ export default function Archive() {
             .then(data => {
                 setFiles(data);
                 data.map(file => (
-                    setDropdownBool([...dropdownBool, [file[file.length - 1].formattedDate, false]])
+                    setDropDownBool([...dropDownBool, [file[file.length - 1].formattedDate, false]])
                     
                 ))
             })
@@ -42,7 +42,7 @@ export default function Archive() {
             {files.map(file => (
                 <ul onMouseLeave={() => { setDropDownHovered(null); setDropDownClicked(null); }}  className="logs-list">
                     
-                    
+                    <h2>{dropDownBool.formattedDate}</h2>
                         <h1 onMouseEnter={() => setDropDownHovered(file[file.length - 1].formattedDate)}>{file[file.length - 1].formattedDate}{dropDownHovered === file[file.length - 1].formattedDate ? <img className="dropdown" onClick={() => setDropDownClicked(!dropDownClicked) } src={Downarrow} /> :""}</h1>
                         {dropDownHovered === file[file.length - 1].formattedDate && dropDownClicked && (
 
