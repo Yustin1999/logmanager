@@ -26,6 +26,7 @@ export default function Archive() {
                 files.map(file => (
                     setDropdownBool([...dropdownBool, [file[file.length - 1].formattedDate, false]])
                 ))
+                { console.log(dropdownBool) }
             })
             
 
@@ -65,7 +66,7 @@ export default function Archive() {
                 ))}
 
             
-            {console.log(dropdownBool)}
+            
         </div>
     );
 }
