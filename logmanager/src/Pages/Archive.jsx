@@ -25,9 +25,16 @@ export default function Archive() {
                 const dropdownArray = data.map(file => [
                     file[file.length - 1].formattedDate,
                     false
+                    
                 ]);
+
+
+                console.log("Dropdown array:", dropdownArray);
+
                 setDropDownBool(dropdownArray);
+                
             })
+            
             .catch(console.error);
     }, []);
 
