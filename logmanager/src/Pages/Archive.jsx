@@ -22,10 +22,11 @@ export default function Archive() {
             .then(res => res.json())
             .then(data => {
                 setFiles(data);
-                data.map(file => (
-                    setDropDownBool([...dropDownBool, [file[file.length - 1].formattedDate, false]])
-                    
-                ))
+                const dropdownArray = data.map(file => [
+                    file[file.length - 1].formattedDate,
+                    false
+                ]);
+                setDropDownBool(dropdownArray);
             })
             .catch(console.error);
     }, []);
@@ -42,7 +43,7 @@ export default function Archive() {
             {files.map(file => (
                 <ul onMouseLeave={() => { setDropDownHovered(null); setDropDownClicked(null); }}  className="logs-list">
                     
-                    <h2>{dropDownBool.formattedDate}</h2>
+                    <h2>{dropDownBool[0].formattedDate}</h2>
                         <h1 onMouseEnter={() => setDropDownHovered(file[file.length - 1].formattedDate)}>{file[file.length - 1].formattedDate}{dropDownHovered === file[file.length - 1].formattedDate ? <img className="dropdown" onClick={() => setDropDownClicked(!dropDownClicked) } src={Downarrow} /> :""}</h1>
                         {dropDownHovered === file[file.length - 1].formattedDate && dropDownClicked && (
 
