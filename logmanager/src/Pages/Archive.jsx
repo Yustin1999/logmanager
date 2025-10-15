@@ -50,7 +50,7 @@ export default function Archive() {
             {files.map(file => (
                 <ul onMouseLeave={() => { setDropDownHovered(null); setDropDownClicked(null); }}  className="logs-list">
                     
-                    <h2>{dropDownBool[0][0]}</h2>
+                   
                         <h1 onMouseEnter={() => setDropDownHovered(file[file.length - 1].formattedDate)}>{file[file.length - 1].formattedDate}{dropDownHovered === file[file.length - 1].formattedDate ? <img className="dropdown" onClick={() => setDropDownClicked(!dropDownClicked) } src={Downarrow} /> :""}</h1>
                         {dropDownHovered === file[file.length - 1].formattedDate && dropDownClicked && (
 
