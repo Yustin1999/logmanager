@@ -23,14 +23,18 @@ export default function Archive() {
             .then(data => {
                 console.log("Fetched data:", data);
                 setFiles(data);
-                
+                files.map(file => (
+                    setDropdownBool([...dropdownBool, [file[file.length - 1].formattedDate, false]])
+                ))
             })
+            
+
             .catch(console.error);
     }, []);
 
 
     //Possible solutions add a true/false to each date object to check if its clicked or not when true it will render the dropdown
-
+    //{setDropdownBool([...dropdownBool, [file[file.length - 1].formattedDate, file[file.length - 1].state]])}
 
 
 
@@ -39,7 +43,7 @@ export default function Archive() {
            
             {files.map(file => (
                 <ul onMouseLeave={() => { setDropDownHovered(null); setDropDownClicked(null); }}  className="logs-list">
-                    {setDropdownBool([...dropdownBool, [file[file.length - 1].formattedDate, file[file.length - 1].state]])}
+                    
                     
                         <h1 onMouseEnter={() => setDropDownHovered(file[file.length - 1].formattedDate)}>{file[file.length - 1].formattedDate}{dropDownHovered === file[file.length - 1].formattedDate ? <img className="dropdown" onClick={() => setDropDownClicked(!dropDownClicked) } src={Downarrow} /> :""}</h1>
                         {dropDownHovered === file[file.length - 1].formattedDate && dropDownClicked && (
