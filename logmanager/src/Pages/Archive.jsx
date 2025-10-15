@@ -21,12 +21,11 @@ export default function Archive() {
         fetch(API_URL + "archive")
             .then(res => res.json())
             .then(data => {
-                console.log("Fetched data:", data);
                 setFiles(data);
                 files.map(file => (
                     setDropdownBool([...dropdownBool, [file[file.length - 1].formattedDate, false]])
                 ))
-                { console.log(dropdownBool) }
+                 console.log(dropdownBool) 
             })
             
 
