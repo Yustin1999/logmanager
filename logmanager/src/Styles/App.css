@@ -6,31 +6,28 @@ body {
 
 .title-div {
     margin-bottom: 20px;
-    width: 100%;
     margin: auto;
     height: 70px;
     margin-bottom: 5px;
     border-bottom: 1px solid #27251f;
     display: inline-block;
+    position: relative; 
+    width: 100%;
+    text-align: center;
 }
 
-.title-div {
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    padding: 20px; 
-    width: 100%; 
-    box-sizing: border-box; 
-}
+
 
 .title {
-    margin: 0 auto; 
-    text-align: center;
-    flex: 1; 
+    margin: 0; 
 }
 
 .title-button {
-    margin-left: auto; 
+    position: absolute; 
+    right: 20px;
+    top: 50%; 
+    transform: translateY(-50%); 
+    margin-bottom: 5px;
 }
 
 .tech-button {
