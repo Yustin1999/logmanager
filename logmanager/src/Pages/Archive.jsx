@@ -6,15 +6,29 @@ export default function Archive() {
     const [files, setFiles] = useState([]);
     const [isHovered, setIsHovered] = useState(null);
     const [dropDownHovered, setDropDownHovered] = useState(null);
-    const [dropDownClicked, setDropDownClicked] = useState(null);
-    const [dropDownBool, setDropDownBool] = useState([]);
     const handleClick = (e, file) => {
         if (!file) return;
         //console.log(file);
         window.location.href = API_URL + `folder/${encodeURIComponent(file)}`;
     }
     
+    const Dropper = (date, file) => {
+        const index = file.findIndex(item => item[item.length-1].formattedDate === date );
 
+        const nextList = file.map((item, i) => {
+            if (i === index) {
+                
+                return [
+                    ...item.slice(0, item.length - 1),
+                    { ...item[item.length - 1], state: !item[item.length - 1].state }
+                ];
+            }
+            return item;
+        });
+        console.log(nextList[index])
+        setFiles(nextList);
+        
+    }
     
 
     useEffect(() => {
@@ -22,17 +36,6 @@ export default function Archive() {
             .then(res => res.json())
             .then(data => {
                 setFiles(data);
-                const dropdownArray = data.map(file => [
-                    file[file.length - 1].formattedDate,
-                    false
-                    
-                ]);
-
-
-                
-
-                setDropDownBool(dropdownArray);
-                
             })
             
             .catch(console.error);
@@ -48,11 +51,11 @@ export default function Archive() {
         <div className="archive-page">
             
             {files.map(file =>  (
-                <ul onMouseLeave={() => { setDropDownHovered(null); setDropDownClicked(null); }}  className="logs-list">
+                <ul onMouseLeave={() => { setDropDownHovered(null); }}  className="logs-list">
                     
                    
-                        <h1 onMouseEnter={() => setDropDownHovered(file[file.length - 1].formattedDate)}>{file[file.length - 1].formattedDate}{dropDownHovered === file[file.length - 1].formattedDate ? <img className="dropdown" onClick={() => setDropDownClicked(!dropDownClicked) } src={Downarrow} /> :""}</h1>
-                        {dropDownHovered === file[file.length - 1].formattedDate && dropDownClicked && (
+                    <h1 onClick={() => Dropper(dropDownHovered, files)}  onMouseEnter={() => setDropDownHovered(file[file.length - 1].formattedDate)}>{file[file.length - 1].formattedDate}{dropDownHovered === file[file.length - 1].formattedDate ? <img className="dropdown" onClick={() => Dropper(dropDownHovered,files) } src={Downarrow} /> :""}</h1>
+                    {file[file.length - 1].state  && (
 
                             file.map(f => typeof f !== "object" && (
                                 <ul className="list-div" onMouseEnter={() => setIsHovered(f)} onMouseLeave={() => setIsHovered(null)}>
