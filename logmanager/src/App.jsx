@@ -9,7 +9,7 @@ import { AuthProvider } from "./Functions/AuthContext";
 import Footer from "./Functions/footer";
 import "@fontsource/dm-serif-text"; 
 import Title from "./Functions/Title";
-import Archive from "./Pages/Archive";
+import LogPage from "./Pages/LogPage";
 import Tariff from "./Pages/Tariff";
 
 /* 
@@ -35,7 +35,7 @@ function App() {
                         <Route path="/login" element={<Login />} />
                         <Route path="/History" element={<PrivateRoute> <History /> </PrivateRoute> } />
                         <Route path="/Restore" element={<PrivateRoute> <Restore /> </PrivateRoute> } />
-                        <Route path="/" element={<PrivateRoute> <Archive /> </PrivateRoute>} />
+                        <Route path="/" element={<PrivateRoute> <LogPage /> </PrivateRoute>} />
                         <Route path="/Tech" element={<PrivateRoute> <Logs /> </PrivateRoute>} />
                         <Route path="/Tariff" element={<PrivateRoute> <Tariff /> </PrivateRoute>} />
                     </Routes>

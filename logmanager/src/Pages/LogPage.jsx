@@ -1,49 +1,80 @@
 import { API_URL } from "../config";
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import download from "../assets/Download.png"
-
-/* 
-    - Calls the backend for all of the names of the log files
-    - Depending on the page it will pull a different set of log files, useParams() is what allows this to work. The end of the url is then sent to the backend eg 'scoreboard.
-    - This is also used to choose the correct file to download, when click download it will send the name of the file you click aswell as the page you are currently on
-    - URL will look like this https://backendproject-it4q.onrender.com/api/folder/scoreboard/scoreboard.txt
-    - Also has a ternary operator to display the download symbol on hover.
-*/
-
-export default function FolderPage() {
-    const { folderName } = useParams();
+import Downarrow from "../assets/DropDown.svg"
+export default function Archive() {
     const [files, setFiles] = useState([]);
-    const [isHovered, setIsHovered] = useState(null)
+    const [isHovered, setIsHovered] = useState(null);
+    const [dropDownHovered, setDropDownHovered] = useState(null);
     const handleClick = (e, file) => {
         if (!file) return;
         //console.log(file);
-        window.location.href = API_URL + `folder/${folderName}/${encodeURIComponent(file)}`;
+        window.location.href = API_URL + `folder/${encodeURIComponent(file)}`;
     }
+    
+    const Dropper = (date, file) => {
+        const index = file.findIndex(item => item[item.length-1].formattedDate === date );
+
+        const nextList = file.map((item, i) => {
+            if (i === index) {
+                
+                return [
+                    ...item.slice(0, item.length - 1),
+                    { ...item[item.length - 1], state: !item[item.length - 1].state }
+                ];
+            }
+            return item;
+        });
+        
+        setFiles(nextList);
+        
+    }
+    
 
     useEffect(() => {
-        fetch(API_URL + `folder/${folderName}/logs`)
+        fetch(API_URL + "archive")
             .then(res => res.json())
-            .then(setFiles)
+            .then(data => {
+                setFiles(data);
+            })
+            
             .catch(console.error);
-    }, [folderName]);
-   
+    }, []);
+
+
+    //Possible solutions add a true/false to each date object to check if its clicked or not when true it will render the dropdown
+    //{setDropdownBool([...dropdownBool, [file[file.length - 1].formattedDate, file[file.length - 1].state]])}
+
+
+
     return (
-        <div className="files-page">
-            <ul className="logs-list">
-                {files.map(file => (
-                    <div className="list-div" onMouseEnter={() => setIsHovered(file)} onMouseLeave={() => setIsHovered(null)}>
-                        
+        <div className="archive-page">
+            
+            {files.map(file =>  (
+                <ul onMouseLeave={() => { setDropDownHovered(null); }}  className="logs-list">
                     
-                    <li key={file} className="files-List">
-                        {file}{""}
-                            {isHovered === file ? <img className="download-image" src={download} value={file} onClick={(e) => handleClick(e, file)} /> : ""}
-                    </li>
+                   
+                    <h1 onClick={() => Dropper(dropDownHovered, files)}  onMouseEnter={() => setDropDownHovered(file[file.length - 1].formattedDate)}>{file[file.length - 1].formattedDate}{dropDownHovered === file[file.length - 1].formattedDate ? <img className="dropdown" onClick={() => Dropper(dropDownHovered,files) } src={Downarrow} /> :""}</h1>
+                    {file[file.length - 1].state  && (
+
+                            file.map(f => typeof f !== "object" && (
+                                <ul className="list-div" onMouseEnter={() => setIsHovered(f)} onMouseLeave={() => setIsHovered(null)}>
+
+                                    <li key={f} className="files-List">
+                                        {f}{""}
+                                        {isHovered === f ? <img className="download-image" src={download} value={f} onClick={(e) => handleClick(e, f)} /> : ""}
+                                    </li>
+
+                                </ul>
+
+                            )))} 
                         
-                    </div>
+                        
+                    </ul>
                 ))}
-                
-            </ul>
+
+            
+            
         </div>
     );
 }
